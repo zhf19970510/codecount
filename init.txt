@@ -1,0 +1,13 @@
+基本命令要求：
+
+ git log --since=10.weeks  --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -; done
+
+
+ git log --since=11.days  --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -; done
+ 
+ 
+准备工作：
+python3在虚拟机环境下安装好
+学习掌握使用git log命令统计代码量
+学习gitpython相关基础操作
+复习巩固git相关基本命令
