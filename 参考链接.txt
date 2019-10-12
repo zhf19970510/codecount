@@ -1,0 +1,16 @@
+gitlab创建个人访问令牌(personal access token)
+https://blog.csdn.net/NGU2028070003/article/details/86634474
+
+教你怎么调用Gitlab API
+https://www.cnblogs.com/Javame/p/9363931.html
+
+pymysql基本操作
+https://www.cnblogs.com/woider/p/5926744.html
+
+gitpython 操作
+gitpython 获取仓库远程分支
+https://blog.csdn.net/laiyaoditude/article/details/86218508
+
+ 
+python操作git
+https://www.cnblogs.com/russellyoung/p/python-cao-zuogit.html
