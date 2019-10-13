@@ -51,7 +51,7 @@ for op, value in opts:
         pass
 
 # 需要爬取的url
-url = "https://git.jczh56.com/api/v4/projects?private_token=65cx2shbYxsJgWpQcpCN&per_page=20000"
+url = "https://git.jczh56.com/api/v4/projects?private_token=xxxxxxxxxxxxxxxxxxxxxx&per_page=20000"
 # 用一个二维矩阵存放projects info
 projects_info_matrix = []
 
@@ -143,7 +143,7 @@ for project_info in projects_info_matrix:
     # 先切换到本地仓库，才能使用git log 统计代码量
     os.chdir(localpath)
     # 将代码clone到本地
-    url = r"https://wwf:WwfOracle@git.jczh56.com" + project_info[1].split(r"//")[1][13:]
+    url = r"https://xxxxxxxxx:xxxxxxxxxxx@git.jczh56.com" + project_info[1].split(r"//")[1][13:]
     try:
         clone_repo = git.Repo.clone_from(url, localpath)
     except Exception as e:
