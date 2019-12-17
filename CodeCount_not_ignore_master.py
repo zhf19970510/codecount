@@ -23,6 +23,7 @@ def usage():
         -c   : 指定将拉取的项目存入哪一个目录下面,默认在/root/mytest/allproject
         """.format(sys.argv[0]))
 
+
 yesterday = (datetime.datetime.now() - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
 # 没有参数默认统计昨天的代码量
 starttime = yesterday + " 00:00:00"
@@ -62,9 +63,17 @@ projects_info_matrix = []
 #    for info in data:
 #        # 存放当前项目相关信息:  项目名，git url,更新时间
 #        project_infos = []
+#        # 2019-10-11T08:55:13.982Z  截取时间 2019-10-11 08:55:13
+#        # project_mtime = info['last_activity_at'][0:10] + " " + info['last_activity_at'][11:19]
+#        # # 根据项目提交时间，判断是否需要缓存，以便后续统计代码量
+#        # if project_mtime >= starttime:
 #        project_infos.append(info['name'])
 #        project_infos.append(info['http_url_to_repo'])
+#        # project_infos.append(project_mtime)
 #        projects_info_matrix.append(project_infos)
+
+
+#getProject_info(url)
 
 
 def git_name_clone():
@@ -100,6 +109,7 @@ def git_name_clone():
         project_clone = re.findall(r'.*id="project_clone" value="(.*?)".*',l3.text)#当前项目clone http地址
         projects_info_matrix.append([project_name[0],project_clone[0]])
     login.close()
+
 
 git_name_clone()
 
@@ -192,8 +202,8 @@ for project_info in projects_info_matrix:
             # 获取远程分支对应名称
             refname = ref.split("/")[1].strip()
             # 如果是master分支，则略过
-            if refname == "master":
-                continue
+            # if refname == "master":
+            #     continue
             # 如果已创建本地分支，先删除该分支
             delgitcmd = f"git branch -d {refname}"
             subprocess.getstatusoutput(delgitcmd)
